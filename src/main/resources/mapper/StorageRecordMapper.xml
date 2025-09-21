@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.mapper.StorageRecordMapper">
+
+    <!-- resultMap + association 嵌套 -->
+    <resultMap id="StorageRecordMap" type="com.example.entity.StorageRecord">
+        <id property="storageId" column="storage_id"/>
+        <result property="goodsName" column="goods_name"/>
+        <result property="totalAmount" column="total_amount"/>
+        <result property="isPaid" column="is_paid"/>
+        <association property="supplier" javaType="com.example.entity.Supplier">
+            <id property="supplierId" column="supplier_id"/>
+            <result property="supplierName" column="supplier_name"/>
+            <result property="contactName" column="contact_name"/>
+            <result property="phone" column="phone"/>
+        </association>
+    </resultMap>
+
+    <!-- 多条件动态查询 -->
+    <select id="queryByCondition" resultMap="StorageRecordMap">
+        SELECT sr.storage_id, sr.goods_name, sr.total_amount, sr.is_paid,
+        s.supplier_id, s.supplier_name, s.contact_name, s.phone
+        FROM storage_record sr
+        JOIN supplier s ON sr.supplier_id = s.supplier_id
+        <where>
+            <if test="goodsName != null and goodsName != ''">
+                AND sr.goods_name LIKE CONCAT('%', #{goodsName}, '%')
+            </if>
+            <if test="supplierName != null and supplierName != ''">
+                AND s.supplier_name LIKE CONCAT('%', #{supplierName}, '%')
+            </if>
+            <if test="isPaid != null">
+                AND sr.is_paid = #{isPaid}
+            </if>
+        </where>
+    </select>
+</mapper>
