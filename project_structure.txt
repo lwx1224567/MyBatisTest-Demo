@@ -1,0 +1,74 @@
+文件夹 PATH 列表
+卷序列号为 0CFD-0DE6
+D:.
+│  MyBatisTest1.iml
+│  pom.xml
+│  project_structure.txt
+│  
+├─.idea
+│  │  .gitignore
+│  │  compiler.xml
+│  │  dataSources.local.xml
+│  │  dataSources.xml
+│  │  encodings.xml
+│  │  misc.xml
+│  │  vcs.xml
+│  │  workspace.xml
+│  │  
+│  └─dataSources
+│      │  bc4d609b-d098-4a90-8d12-dc1ee0f298c3.xml
+│      │  
+│      └─bc4d609b-d098-4a90-8d12-dc1ee0f298c3
+│          └─storage_v2
+│              └─_src_
+│                  └─schema
+│                          information_schema.FNRwLQ.meta
+│                          
+├─src
+│  ├─main
+│  │  ├─java
+│  │  │  └─com
+│  │  │      └─example
+│  │  │          ├─entity
+│  │  │          │      StorageRecord.java
+│  │  │          │      Supplier.java
+│  │  │          │      
+│  │  │          ├─mapper
+│  │  │          │      StorageRecordMapper.java
+│  │  │          │      
+│  │  │          └─test
+│  │  │                  TestStorageRecord.java
+│  │  │                  
+│  │  └─resources
+│  │      │  database.properties
+│  │      │  log4j.properties
+│  │      │  mybatis-config.xml
+│  │      │  
+│  │      └─mapper
+│  │              StorageRecordMapper.xml
+│  │              
+│  └─test
+│      └─java
+└─target
+    ├─classes
+    │  │  database.properties
+    │  │  log4j.properties
+    │  │  mybatis-config.xml
+    │  │  
+    │  ├─com
+    │  │  └─example
+    │  │      ├─entity
+    │  │      │      StorageRecord.class
+    │  │      │      Supplier.class
+    │  │      │      
+    │  │      ├─mapper
+    │  │      │      StorageRecordMapper.class
+    │  │      │      
+    │  │      └─test
+    │  │              TestStorageRecord.class
+    │  │              
+    │  └─mapper
+    │          StorageRecordMapper.xml
+    │          
+    └─generated-sources
+        └─annotations

@@ -38,5 +38,16 @@ public class Supplier {
         this.phone = phone;
     }
 
+    @Override
+    public String toString() {
+        return "Supplier{" +
+                "supplierId=" + supplierId +
+                ", supplierName='" + supplierName + '\'' +
+                ", contactName='" + contactName + '\'' +
+                ", phone='" + phone + '\'' +
+                '}';
+    }
+
+
 
 }

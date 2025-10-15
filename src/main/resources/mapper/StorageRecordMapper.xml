@@ -2,10 +2,10 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-
+<!--Mapper 对应的 Java 接口-->
 <mapper namespace="com.example.mapper.StorageRecordMapper">
 
-    <!-- resultMap + association 嵌套 -->
+<!--resultMap 用来 定义 SQL 查询结果和 Java 对象字段的映射关系 -->
     <resultMap id="StorageRecordMap" type="com.example.entity.StorageRecord">
         <id property="storageId" column="storage_id"/>
         <result property="goodsName" column="goods_name"/>
@@ -37,4 +37,15 @@
             </if>
         </where>
     </select>
+
+    <!-- 添加记录 -->
+    <insert id="insert" parameterType="com.example.entity.StorageRecord">
+        INSERT INTO storage_record (goods_name, total_amount, is_paid, supplier_id)
+        VALUES (#{goodsName}, #{totalAmount}, #{isPaid}, #{supplier.supplierId})
+    </insert>
+
+    <!-- 删除记录 -->
+    <delete id="delete" parameterType="int">
+        DELETE FROM storage_record WHERE storage_id = #{id}
+    </delete>
 </mapper>

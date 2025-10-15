@@ -11,5 +11,9 @@ public interface StorageRecordMapper {
                 @Param("supplierName") String supplierName,
                 @Param("isPaid") Boolean isPaid
         );
+        // 添加记录
+        void insert(StorageRecord record);
 
+        // 删除记录
+        void delete(@Param("id") Integer id);
 }

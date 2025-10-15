@@ -47,4 +47,17 @@ public class StorageRecord {
     public void setSupplier(Supplier supplier) {
         this.supplier = supplier;
     }
+
+    @Override
+    public String toString() {
+        return "StorageRecord{" +
+                "storageId=" + storageId +
+                ", goodsName='" + goodsName + '\'' +
+                ", totalAmount=" + totalAmount +
+                ", isPaid=" + isPaid +
+                ", supplier=" + (supplier != null ? supplier.getSupplierName() : null) +
+                '}';
+    }
+
+
 }
